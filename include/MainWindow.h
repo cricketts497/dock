@@ -2,6 +2,8 @@
 #define MAIN_WINDOW_H
 
 #include <QMainWindow>
+#include <qcustomplot.h>
+#include <QTimer>
 
 class QListWidget;
 class QTextEdit;
@@ -15,14 +17,18 @@ public:
 
 private slots:
 	void newLetter();
+	void realtimeDataSlot();
 
 private:
 	void createActions();
 	void createStatusBar();
 	void createDockWindows();
+	void createSplitterWindows();
 
 	QTextEdit *textEdit;
-	QListWidget *customerList;
+	//QListWidget *customerList;
+	QCustomPlot *livePlot;
+	QTimer *dataTimer;
 
 	QMenu *viewMenu;
 };
